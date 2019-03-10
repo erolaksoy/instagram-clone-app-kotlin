@@ -3,7 +3,7 @@ package com.erolaksoy.instagramclone.Home
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.erolaksoy.instagramclone.R
-import com.erolaksoy.instagramclone.utils.BottomNavigationViewHelper
+import com.erolaksoy.instagramclone.utils.BottomnavigationViewHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setupNavigationView(){
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationView)
+        BottomnavigationViewHelper.setupBottomNavigationView(bottomNavigationView)
+        BottomnavigationViewHelper.setupNavigation(this,bottomNavigationView)
     }
 }
