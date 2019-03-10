@@ -1,12 +1,13 @@
-package com.erolaksoy.instagramclone
+package com.erolaksoy.instagramclone.Profile
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.erolaksoy.instagramclone.R
 
-class MainActivity : AppCompatActivity() {
+class Profile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_profile)
     }
 }
