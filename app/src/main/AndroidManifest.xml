@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".Profile.ProfileSettingsActivity">
+        </activity>
         <activity android:name=".Share.Share">
         </activity>
         <activity android:name=".Search.Search">
