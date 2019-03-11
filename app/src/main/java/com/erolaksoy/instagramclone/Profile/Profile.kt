@@ -1,5 +1,6 @@
 package com.erolaksoy.instagramclone.Profile
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.erolaksoy.instagramclone.R
@@ -15,7 +16,15 @@ class Profile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        setupToolbar()
         setupNavigationView()
+    }
+
+    private fun setupToolbar() {
+        imgProfileSettings.setOnClickListener(){
+            var intent = Intent(this,ProfileSettingsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
     }
 
     fun setupNavigationView(){
