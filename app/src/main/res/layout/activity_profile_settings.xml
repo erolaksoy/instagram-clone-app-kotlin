@@ -7,114 +7,131 @@
         android:layout_height="match_parent"
         tools:context=".Profile.ProfileSettingsActivity">
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_back"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" android:layout_marginStart="16dp" android:id="@+id/imgBack"
-            app:layout_constraintEnd_toStartOf="@+id/tvAyarlar" android:layout_marginEnd="24dp"
-            tools:ignore="VectorDrawableCompat"/>
-
-    <View
-            android:background="@color/golgelik"
+    <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp" android:id="@+id/golgelik"
-            android:visibility="visible" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="9dp"
-            app:layout_constraintTop_toBottomOf="@+id/imgBack" android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView9"/>
+            android:layout_height="match_parent" android:id="@+id/profile_settings_root">
 
-    <TextView
-            android:text="Ayarlar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvAyarlar"
-            app:layout_constraintStart_toEndOf="@+id/imgBack"
-            android:textColor="@color/siyah"
-            android:textStyle="bold"
 
-            android:layout_marginStart="24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imgBack" app:layout_constraintTop_toTopOf="@+id/imgBack"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_back"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp" android:layout_marginStart="16dp" android:id="@+id/imgBack"
+                app:layout_constraintEnd_toStartOf="@+id/tvAyarlar" android:layout_marginEnd="24dp"
+                tools:ignore="VectorDrawableCompat"/>
 
-    <TextView
-            android:text="Hesap Ayarları"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/siyah"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/textView9"
-            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/tvAyarlar"/>
-    <TextView
-            android:text="Profili Düzenle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/tvProfilDuzenleHesapAyarlari" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="Beğendiğim Gönderiler"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/textView11" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvProfilDuzenleHesapAyarlari"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="Şifreni Değiştir"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/textView12" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="Kaydedileneler"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/textView13" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="Gizli Hesap"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/textView14" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="Arama Geçmişini Sil"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/textView15" android:textColor="@color/mavi" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"/>
-    <TextView
-            android:text="Çıkış Yap"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/textView16" android:layout_marginStart="16dp" android:textColor="@color/mavi"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/textView15"/>
+        <View
+                android:background="@color/golgelik"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" android:id="@+id/golgelik"
+                android:visibility="visible" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="9dp"
+                app:layout_constraintTop_toBottomOf="@+id/imgBack" android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView9"/>
 
-    <View
-            android:background="@color/golgelik"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" android:id="@+id/golgelik2"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="566dp" app:layout_constraintHorizontal_bias="0.0"/>
-    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-            android:layout_width="match_parent"
-            android:layout_height="50dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_navigation_menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:id="@+id/bottomNavigationView"></com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
+        <TextView
+                android:text="Ayarlar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvAyarlar"
+                app:layout_constraintStart_toEndOf="@+id/imgBack"
+                android:textColor="@color/siyah"
+                android:textStyle="bold"
+
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBack" app:layout_constraintTop_toTopOf="@+id/imgBack"/>
+
+        <TextView
+                android:text="Hesap Ayarları"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/siyah"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textView9"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/tvAyarlar"/>
+        <TextView
+                android:text="Profili Düzenle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/tvProfilDuzenleHesapAyarlari" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Beğendiğim Gönderiler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textView11" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfilDuzenleHesapAyarlari"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Şifreni Değiştir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textView12" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Kaydedileneler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textView13" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Gizli Hesap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textView14" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Arama Geçmişini Sil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/textView15" android:textColor="@color/mavi" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"/>
+        <TextView
+                android:text="Çıkış Yap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/tvCikisYap" android:layout_marginStart="16dp" android:textColor="@color/mavi"
+                android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/textView15"/>
+
+        <View
+                android:background="@color/golgelik"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" android:id="@+id/golgelik2"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"/>
+
+        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+                android:layout_width="match_parent"
+                android:layout_height="50dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_navigation_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/bottomNavigationView"></com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                 android:id="@+id/profileSettingsContainer">
+
+
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

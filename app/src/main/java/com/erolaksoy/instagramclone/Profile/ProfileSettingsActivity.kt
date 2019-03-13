@@ -2,6 +2,7 @@ package com.erolaksoy.instagramclone.Profile
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.erolaksoy.instagramclone.R
 import com.erolaksoy.instagramclone.utils.BottomnavigationViewHelper
 
@@ -17,12 +18,38 @@ class ProfileSettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_settings)
         setupNavigationView()
         setupToolbar()
+        fragmentNavigations()
+    }
+
+    private fun fragmentNavigations() {
+        tvProfilDuzenleHesapAyarlari.setOnClickListener{
+            profile_settings_root.visibility= View.GONE
+            var transaction=supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.profileSettingsContainer,ProfileEditFragment())
+            transaction.addToBackStack("Profili Düzenle Fragment Eklendi")
+            transaction.commit()
+
+        }
+
+        tvCikisYap.setOnClickListener {
+            profile_settings_root.visibility=View.GONE
+            var transaction=supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.profileSettingsContainer,SignOutFragment())
+            transaction.addToBackStack("SignOut Fragment Eklendi")
+            transaction.commit()
+        }
+
     }
 
     private fun setupToolbar() {
         imgBack.setOnClickListener{
             onBackPressed()
         }
+    }
+
+    override fun onBackPressed() {
+        profile_settings_root.visibility=View.VISIBLE
+        super.onBackPressed()
     }
 
     fun setupNavigationView(){
