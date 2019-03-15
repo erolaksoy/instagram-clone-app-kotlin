@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.erolaksoy.instagramclone.R
 import com.erolaksoy.instagramclone.utils.BottomnavigationViewHelper
+import com.erolaksoy.instagramclone.utils.UniversalImageLoader
 import kotlinx.android.synthetic.main.activity_profile.*
 
 
@@ -19,6 +20,12 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
         setupToolbar()
         setupNavigationView()
+        setupProfilePhoto()
+    }
+
+    private fun setupProfilePhoto() {
+        val imgUrl="sosyalmedya.co/wp-content/uploads/2011/10/Steve-Jobs6-940x470.png"
+        UniversalImageLoader.setImage(imgUrl,circleProfileImage,null,"https://")
     }
 
     private fun setupToolbar() {

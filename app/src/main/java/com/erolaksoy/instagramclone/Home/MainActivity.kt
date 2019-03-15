@@ -5,6 +5,8 @@ import android.os.Bundle
 import com.erolaksoy.instagramclone.R
 import com.erolaksoy.instagramclone.utils.BottomnavigationViewHelper
 import com.erolaksoy.instagramclone.utils.HomePagerAdapter
+import com.erolaksoy.instagramclone.utils.UniversalImageLoader
+import com.nostra13.universalimageloader.core.ImageLoader
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupNavigationView()
         setupHomeViewPager()
+        initImageLodaer()
     }
 
 
@@ -37,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         homeViewPager.adapter=homePagerAdapter
 
         homeViewPager.setCurrentItem(1)
+    }
+
+    private fun initImageLodaer(){
+        var universalImageLoader= UniversalImageLoader(this)
+        ImageLoader.getInstance().init(universalImageLoader.config)
     }
 
 }

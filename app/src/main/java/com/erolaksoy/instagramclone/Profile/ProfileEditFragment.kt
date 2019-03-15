@@ -34,7 +34,7 @@ class ProfileEditFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile_edit, container, false)
         circleProfileImage=view.circleProfileImage
-        initImageLodaer()
+
         setupProfilePicture()
 
 
@@ -46,10 +46,7 @@ class ProfileEditFragment : Fragment() {
     return view
     }
 
-    private fun initImageLodaer(){
-        var universalImageLoader=UniversalImageLoader(this.activity!!)
-        ImageLoader.getInstance().init(universalImageLoader.config)
-    }
+
 
 
     private fun setupProfilePicture() {
