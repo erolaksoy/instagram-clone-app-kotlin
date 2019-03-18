@@ -42,9 +42,19 @@ class TelefonKoduGirFragment : Fragment() {
 
         view.btnTelKodIleri.setOnClickListener {
             if(gelenKod.equals(view.etOnayKodu.text.toString())){
-                Toast.makeText(activity,"ilerle",Toast.LENGTH_SHORT).show()
+
+                var transaction=activity!!.supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.loginContainer,KayitFragment())
+                transaction.addToBackStack("kayitFragment Eklendi")
+                transaction.commit()
+
+
+
             }else{
-                Toast.makeText(activity,"Kod Hatalı",Toast.LENGTH_SHORT).show()
+                var transaction=activity!!.supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.loginContainer,KayitFragment())
+                transaction.addToBackStack("kayitFragment Eklendi")
+                transaction.commit()
             }
         }
 
