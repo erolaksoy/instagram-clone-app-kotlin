@@ -42,7 +42,7 @@ class TelefonKoduGirFragment : Fragment() {
 
         view.btnTelKodIleri.setOnClickListener {
             if(gelenKod.equals(view.etOnayKodu.text.toString())){
-
+                EventBus.getDefault().postSticky(EventBusDataEvents.KayitBilgileriniGonder(gelenTelNo,null,verificationID,gelenKod,false))
                 var transaction=activity!!.supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.loginContainer,KayitFragment())
                 transaction.addToBackStack("kayitFragment Eklendi")
@@ -93,8 +93,8 @@ class TelefonKoduGirFragment : Fragment() {
 
 
     @Subscribe (sticky = true)
-    internal fun onTelefoNoEvent(telefonNumarasi : EventBusDataEvents.TelNoGonder){
-        gelenTelNo=telefonNumarasi.telNo
+    internal fun onTelefoNoEvent(kayitBilgileri : EventBusDataEvents.KayitBilgileriniGonder){
+        gelenTelNo=kayitBilgileri.telNo!!
         Log.e("erol","Gelen tel no " + gelenTelNo)
     }
 

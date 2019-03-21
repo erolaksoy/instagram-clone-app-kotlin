@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.erolaksoy.instagramclone.R
 import com.erolaksoy.instagramclone.utils.EventBusDataEvents
@@ -25,6 +26,12 @@ private const val ARG_PARAM2 = "param2"
  */
 class KayitFragment : Fragment() {
 
+    var telNo=""
+    var verificationID=""
+    var gelenKod=""
+    var gelenEmail=""
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,10 +41,22 @@ class KayitFragment : Fragment() {
     }
 
     @Subscribe(sticky = true)
-    internal fun onTelefoNoEvent(eMailAdres : EventBusDataEvents.EmailGonder){
-        var gelenEmail=eMailAdres.eMail
-        Log.e("erol","Gelen email " + gelenEmail)
-    }
+    internal fun onKayitEvent(kayitBilgileri : EventBusDataEvents.KayitBilgileriniGonder) {
+
+        if (kayitBilgileri.eMailKontrol == true) {
+
+            var gelenEmail = kayitBilgileri.eMail!!
+            Toast.makeText(activity,"Gelen Email : " + gelenEmail,Toast.LENGTH_SHORT).show()
+            Log.e("erol", "Gelen email " + gelenEmail)
+        }else{
+                telNo==kayitBilgileri.telNo!!
+                verificationID==kayitBilgileri.verificationID!!
+                gelenKod==kayitBilgileri.code!!
+
+            Toast.makeText(activity,"Gelen Kod : " +gelenKod+"Verification ID : "+verificationID,Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
