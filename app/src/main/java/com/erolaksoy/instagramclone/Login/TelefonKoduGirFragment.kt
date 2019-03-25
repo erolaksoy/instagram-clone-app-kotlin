@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.erolaksoy.instagramclone.R
 import com.erolaksoy.instagramclone.utils.EventBusDataEvents
@@ -30,14 +31,15 @@ class TelefonKoduGirFragment : Fragment() {
     lateinit var mCallbacks:PhoneAuthProvider.OnVerificationStateChangedCallbacks
     var verificationID=""
     var gelenKod =""
+    lateinit var progressBar : ProgressBar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?):View?{
         //return inflater.inflate(R.layout.fragment_telefon_kodu_gir, container, false)
 
         var view=inflater!!.inflate(R.layout.fragment_telefon_kodu_gir,container,false)
 
-        view.tvKullaniciTelNo.setText(gelenTelNo)
-
+        view.tvKullaniciTelNo.text = gelenTelNo
+        progressBar=view.pbTelNoOnayla
         setupCallBack()
 
         view.btnTelKodIleri.setOnClickListener {
@@ -74,8 +76,10 @@ class TelefonKoduGirFragment : Fragment() {
         mCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-
-                gelenKod = credential.smsCode!!
+                if (!credential.smsCode.isNullOrEmpty()) {
+                    progressBar.visibility = View.INVISIBLE
+                    gelenKod = credential.smsCode!!
+                }
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
@@ -85,8 +89,10 @@ class TelefonKoduGirFragment : Fragment() {
             override fun onCodeSent(
                 verificationId: String?,
                 token: PhoneAuthProvider.ForceResendingToken?
+
             ) {
                 verificationID=verificationId!!
+                progressBar.visibility=View.VISIBLE
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.erolaksoy.instagramclone.Login
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.FragmentManager
@@ -65,18 +66,32 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
                }
 
                 btnIleri.setOnClickListener{
+
+
+
                     if(etGirisYontemi.hint.toString().equals("Telefon")){
-                        loginRoot.visibility=View.GONE
-                        loginContainer.visibility=View.VISIBLE
-                        var transaction=supportFragmentManager.beginTransaction()
-                        transaction.replace(R.id.loginContainer,TelefonKoduGirFragment())
-                        transaction.addToBackStack("Telefon kodu gir fragment eklendi")
-                        transaction.commit()
-                        EventBus.getDefault().postSticky(EventBusDataEvents.KayitBilgileriniGonder(etGirisYontemi.text.toString(),null,null,null,false))
+
+                        if(isValidTelefon(etGirisYontemi.text.toString())){
+                            loginRoot.visibility=View.GONE
+                            loginContainer.visibility=View.VISIBLE
+
+                            var transaction=supportFragmentManager.beginTransaction()
+                            transaction.replace(R.id.loginContainer,TelefonKoduGirFragment())
+                            transaction.addToBackStack("Telefon kodu gir fragment eklendi")
+                            transaction.commit()
+                            EventBus.getDefault().postSticky(EventBusDataEvents.KayitBilgileriniGonder(etGirisYontemi.text.toString(),null,null,null,false))
+
+                        }else{
+                            Toast.makeText(this@RegisterActivity,"Lütfen geçerli bir telefon numarası giriniz.",Toast.LENGTH_SHORT).show()
+                        }
+
 
 
 
                     }else{
+                        if(isValidEmail(etGirisYontemi.text.toString())){
+
+
                         loginRoot.visibility=View.GONE
                         loginContainer.visibility=View.VISIBLE
                         var transaction=supportFragmentManager.beginTransaction()
@@ -84,6 +99,9 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
                         transaction.addToBackStack("Email giris  eklendi")
                         transaction.commit()
                         EventBus.getDefault().postSticky(EventBusDataEvents.KayitBilgileriniGonder(null,etGirisYontemi.text.toString(),null,null,true))
+                        }else{
+                            Toast.makeText(this@RegisterActivity,"Lütfen geçerli bir E-Mail adresi giriniz.",Toast.LENGTH_SHORT).show()
+                        }
                     }
 
                 }
@@ -101,6 +119,24 @@ class RegisterActivity : AppCompatActivity(), FragmentManager.OnBackStackChanged
 
         }
     }
+
+
+    fun isValidEmail(kontrolEdilecekMail:String):Boolean{
+        if(kontrolEdilecekMail==null){
+            return false
+        }
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(kontrolEdilecekMail).matches()
+    }
+
+    fun isValidTelefon(kontrolEdilecekTelefon:String):Boolean{
+        if(kontrolEdilecekTelefon==null || kontrolEdilecekTelefon.length>10){
+            return false
+        }
+        return android.util.Patterns.PHONE.matcher(kontrolEdilecekTelefon).matches()
+    }
+
+
+
 
 
 }
